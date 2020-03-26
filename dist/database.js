@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = require("mongoose");
 function startConnection() {
     return __awaiter(this, void 0, void 0, function* () {
-        yield mongoose_1.connect("mongodb://localhost:27017/api-rest-ty", {
+        yield mongoose_1.connect(`${process.env.MONGODB_URI}`, {
             useCreateIndex: true,
             useNewUrlParser: true,
             useUnifiedTopology: true,
