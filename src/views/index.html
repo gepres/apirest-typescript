@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1 id="apirestcontypescript">API REST CON TYPESCRIPT</h1>
+
+<ul>
+<li><a href="https://apirest-typescript.herokuapp.com/">link de hekoru</a></li>
+</ul>
+
+<p>Esta es una api rest con typescript.</p>
+
+<ul>
+<li>nodejs version v12.13.1</li>
+
+<li>mongodb  v4.2.2</li>
+
+<li>typescript v3.8.3</li>
+
+<li>cloudinary</li>
+
+<li>jwt</li>
+</ul>
+
+<h2 id="utilizar">UTILIZAR</h2>
+
+<ul>
+<li>npm run dev || para desarrollo</li>
+
+<li>npm start || para produción</li>
+</ul>
+
+<h2 id="endpoint">END POINT</h2>
+
+<p><em>endpoint => metodo || descripción</em></p>
+
+<p><strong>FOTOS</strong></p>
+
+<ul>
+<li>/api/photo => get ||lista de fotos(publico)</li>
+
+<li>/api/photo/:id => get || consulta de un foto (publico)</li>
+
+<li>/api/photo/ => post || agregar foto (auntenticación)</li>
+
+<li>/api/photo/:id => put || actualizar foto(auntenticación)</li>
+
+<li>/api/photo/:id => delete || eliminar foto(auntenticación)</li>
+</ul>
+
+<p><strong>USUARIO</strong></p>
+
+<ul>
+<li>/api/auth/signup => post || registrarse(publico)</li>
+
+<li>/api/photo/signin => post ||login(publico)</li>
+</ul>
+
+<h3 id="configuracin">CONFIGURACIÓN</h3>
+
+<ul>
+<li>npm init</li>
+
+<li>npx tsc --init</li>
+</ul>
+
+<p><strong>instalar dependencias</strong></p>
+
+<ul>
+<li>npm i express cross-env dotenv cloudinary fs-extra mongoose morgan multer shortid cors express-validator jsonwebtoken bcrypt</li>
+
+<li>npm i typescript nodemon ts-node @types/express  @types/fs-extra  @types/mongoose  @types/morgan  @types/multer  @types/shortid @types/cors @types/jsonwebtoken @types/bcrypt  -D</li>
+</ul>
+
+<p><strong>configuración de archivos</strong></p>
+
+<ul>
+<li>crea carpeta src , dentro las carpetas models, controllers,routes,middlewares</li>
+
+<li>crea la carpeta uplodas para las imagenes</li>
+
+<li>crea un archivo nodemon.json , escribe</li>
+</ul>
+
+<pre><code class="js language-js">{
+  "watch":[
+    "src"
+  ],
+  "ext":"ts",
+  "ingore":[
+   "src/**/*.spec.ts" 
+  ],
+  "exec":"ts-node ./src/index.ts"
+}
+</code></pre>
+
+<ul>
+<li>configura el archivo tsconfig.json</li>
+</ul>
+
+<pre><code class="js language-js">"target": "es6",
+//
+"outDir": "./dist/",
+"rootDir": "./src/", 
+// 
+"moduleResolution": "node",
+//
+"typeRoots": [
+  "./custom_typings",
+  "./node_modules/@types"
+], 
+//
+"include":[
+    "./src**/*"
+  ],
+  "exclude": [
+    "node_modules"
+],
+// "files":["types.d.ts"]
+</code></pre>
+
+<ul>
+<li>archivo index.d.ts en la carpeta custom_typings/express || para el req</li>
+
+<li>o tambien un types.d.ts  el base de proyecto y descomenta el files de tsconfig</li>
+</ul>
+
+<pre><code class="js language-js">declare namespace Express {
+  interface Request {
+    userId: string;
+  }
+}
+</code></pre>
+
+<ul>
+<li>archivo .env  || variables de entorno</li>
+</ul>
+
+<pre><code class="js language-js">MONGODB_URI = ruta de mongo atlas
+CLOUDINARY_CLOUD_NAME = 
+CLOUDINARY_API_KEY = 
+CLOUDINARY_API_SECRET = 
+SECRET_KEY = 
+</code></pre>
+
+<ul>
+<li>script de package.json</li>
+</ul>
+
+<pre><code class="js language-js">  "ts:node": "ts-node src/index.ts",
+  "clean": "rm -rf dist",
+  "build": "tsc",
+  "start": "cross-env NODE_ENV=production node dist/index.js",
+  "dev": "cross-env NODE_ENV=development nodemon"
+</code></pre>
+</body>
+</html>

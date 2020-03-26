@@ -1,5 +1,6 @@
 # API REST CON TYPESCRIPT
 * [link de hekoru](https://apirest-typescript.herokuapp.com/)
+* [link de repositorio](https://github.com/gepres/apirest-typescript)
 
 Esta es una api rest con typescript.
 
@@ -112,6 +113,6 @@ SECRET_KEY =
   "ts:node": "ts-node src/index.ts",
   "clean": "rm -rf dist",
   "build": "tsc",
-  "start": "cross-env NODE_ENV=production npm run build && node dist/index.js",
+  "start": "cross-env NODE_ENV=production node dist/index.js",
   "dev": "cross-env NODE_ENV=development nodemon"
 ```
